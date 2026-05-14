@@ -3,28 +3,20 @@
 # Press ⌃R to execute it or replace it with your code.
 # Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
 from fastapi import FastAPI
-from pydantic import BaseModel
+from routes.chat import router as chat_router
+app = FastAPI(
+    title="Enterprise AI Assistant",
+    version="1.0.0"
+)
 
-app = FastAPI()
-
-# Define request body structure
-class QuestionRequest(BaseModel):
-    question: str
-
+app.include_router(chat_router)
 
 @app.get("/")
+
 def home():
-    return {"message": "Hello AI Engineer Lead"}
 
+    return {"message": "AI Assistant Running"}
 
-@app.post("/ask")
-def ask_question(request: QuestionRequest):
-    question = request.question
-
-    # Temporary response (LLM will come later)
-    answer = f"You asked: {question}"
-
-    return {"answer": answer}
 
 
 
