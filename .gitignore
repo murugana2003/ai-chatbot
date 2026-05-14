@@ -1,1 +1,32 @@
-/.venv
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyc
+
+# IDE
+.idea/
+.vscode/
+
+# Environment variables
+.env
+.env.*
+
+# macOS
+.DS_Store
+
+# Uploaded / runtime files
+routes/*.pdf
+routes/*.docx
+services/alerts.json
+services/alerts.txt
+
+# Distribution
+dist/
+build/
+*.egg-info/
